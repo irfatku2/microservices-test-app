@@ -5,7 +5,7 @@ import { Message } from "@Entities";
 @Service({
     name: "message",
 })
-export default class MessageService extends MoleculerService {
+class MessageService extends MoleculerService {
     @Action({
         params: {
             user: { type: "string" },
@@ -13,7 +13,9 @@ export default class MessageService extends MoleculerService {
             message: { type: "string" }
         },
     })
-    public async handleMessage(ctx: Context): Promise<void> {
+    public async handleMessage(ctx: Context<Message>): Promise<void> {
         return await ctx.call("delivery.send", ctx.params);
     }
 }
+
+module.exports = MessageService;

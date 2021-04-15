@@ -53,12 +53,6 @@
     "baseUrl": ".",
     /* Base directory to resolve non-absolute module names. */
     "paths": {
-      "@MicroServices/*": [
-        "services/*"
-      ],
-      "@MicroServices": [
-        "services"
-      ],
       "@Interfaces/*": [
         "src/Interfaces/*"
       ],

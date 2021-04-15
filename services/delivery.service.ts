@@ -1,11 +1,11 @@
-import { Context, Service as MoleculerService } from 'moleculer';
+import { Context, Service as MoleculerService } from "moleculer";
 import { Action, Method, Service } from 'moleculer-decorators';
 import { Message } from "@Entities";
 
 @Service({
-    name: 'delivery'
+    name: "delivery"
 })
-export default class DeliveryService extends MoleculerService {
+class DeliveryService extends MoleculerService {
     @Action()
     public send(ctx: Context<Message>): Promise<void> {
         return this.sendToConsole(ctx)
@@ -20,3 +20,5 @@ export default class DeliveryService extends MoleculerService {
         )
     }
 }
+
+module.exports = DeliveryService;
