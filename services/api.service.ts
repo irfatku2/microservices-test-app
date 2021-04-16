@@ -6,7 +6,7 @@ import { Service } from "moleculer-decorators";
     name: "api",
     mixins: [ApiGateway],
     settings: {
-        port: process.env.HTTP_PORT || 3000,
+        port: process.env.HTTP_PORT || 8080,
         routes: [
             {
                 mappingPolicy: "restrict",

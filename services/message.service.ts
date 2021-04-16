@@ -11,7 +11,7 @@ export default class MessageService extends MoleculerService {
         params: {
             user: { type: "string" },
             timestamp: { type: "number" },
-            message: { type: "string" }
+            message: { type: "string", max: 119 }
         },
     })
     public async handleMessage(ctx: Context<Message>): Promise<void> {
