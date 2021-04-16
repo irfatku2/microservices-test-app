@@ -8,7 +8,7 @@
     "build": "tsc",
     "dev": "ts-node -r tsconfig-paths/register ./node_modules/moleculer/bin/moleculer-runner.js --hot --config moleculer.config.ts services/**/*.service.ts",
     "start": "npm run node-1 & npm run node-2",
-    "test": "jest --covarage"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,31 @@
     "tsconfig-paths": "^3.9.0"
   },
   "jest": {
-    "clearMocks": true
+    "preset": "ts-jest",
+    "clearMocks": true,
+    "coverageDirectory": "<rootDir>/coverage",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!variables/.*)"
+    ],
+    "moduleNameMapper": {
+      "^@(Test)(.*)$": "<rootDir>/test/$2",
+      "^@([A-Z].*)$": "<rootDir>/src/$1"
+    },
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.spec.(ts)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "<rootDir>/tsconfig.json"
+      }
+    }
   }
 }

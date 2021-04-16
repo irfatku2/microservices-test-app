@@ -1,11 +1,12 @@
 import { Context, Service as MoleculerService } from 'moleculer';
 import { Action, Service } from 'moleculer-decorators';
 import { Message } from "@Entities";
+import { DeliveryHelper } from "@ServiceHelpers";
 
 @Service({
     name: "message",
 })
-class MessageService extends MoleculerService {
+export default class MessageService extends MoleculerService {
     @Action({
         params: {
             user: { type: "string" },
@@ -14,8 +15,6 @@ class MessageService extends MoleculerService {
         },
     })
     public async handleMessage(ctx: Context<Message>): Promise<void> {
-        return await ctx.call("delivery.send", ctx.params);
+        return await DeliveryHelper.send(ctx, ctx.params);
     }
 }
-
-module.exports = MessageService;

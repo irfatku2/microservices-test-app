@@ -5,7 +5,7 @@ import { Message } from "@Entities";
 @Service({
     name: "delivery"
 })
-class DeliveryService extends MoleculerService {
+export default class DeliveryService extends MoleculerService {
     @Action()
     public send(ctx: Context<Message>): Promise<void> {
         return this.sendToConsole(ctx)
@@ -20,5 +20,3 @@ class DeliveryService extends MoleculerService {
         )
     }
 }
-
-module.exports = DeliveryService;

@@ -20,6 +20,4 @@ import { Service } from "moleculer-decorators";
         ]
     }
 })
-class ApiService extends MoleculerService { }
-
-module.exports = ApiService;
+export default class ApiService extends MoleculerService { }
